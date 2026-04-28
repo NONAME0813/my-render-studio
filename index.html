@@ -51,7 +51,8 @@
         }
 
         async function startProcess() {
-            const key = document.getElementById('apiKey').value;
+            const rawKey = document.getElementById('apiKey').value;
+            const key = rawKey.trim().replace(/[^\x00-\x7F]/g, "");
             const style = document.getElementById('styleImg').files[0];
             const struct = document.getElementById('structImg').files[0];
             const btn = document.getElementById('mainBtn');
